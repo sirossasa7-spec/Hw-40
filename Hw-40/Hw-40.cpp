@@ -1,20 +1,48 @@
-// Hw-40.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
-#include <iostream>
+#include "Violations.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    FineDatabase db;
+
+    db.addViolation(
+        "AA1234BB",
+        "2024-03-10",
+        "Перевищення швидкості",
+        850);
+
+    db.addViolation(
+        "AA1234BB",
+        "2024-04-15",
+        "Проїзд на червоне світло",
+        510);
+
+    db.addViolation(
+        "BC5678KK",
+        "2024-05-20",
+        "Неправильне паркування",
+        340);
+
+    cout << "\n===== Повна база =====\n";
+    db.printAll();
+
+    cout << "\n===== Дані за номером =====\n";
+    db.printByCar("AA1234BB");
+
+    cout << "\n===== Сума штрафів =====\n";
+    cout << "AA1234BB: "
+        << db.getTotalFine("AA1234BB")
+        << " грн\n";
+
+    cout << "\n===== Пошук за період =====\n";
+    db.searchByPeriod(
+        "2024-03-01",
+        "2024-04-30");
+
+    cout << "\n===== Оплата штрафів =====\n";
+    db.payFine("AA1234BB");
+
+    cout << "\n===== База після оплати =====\n";
+    db.printAll();
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
