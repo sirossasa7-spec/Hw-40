@@ -18,5 +18,13 @@
     <ClCompile Include="Hw-40.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Violations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Violations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
